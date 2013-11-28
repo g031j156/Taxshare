@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<title>taxshare</title>
+	<meta name="veiwport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery.1.8.3.min.js"></script>
+</head>
+<body>
+	
+	<div class="box_member">
+		<span style="display: none;">http://liginc.co.jp/api/member.php?member_id=3</span>
+		<a href="http://liginc.co.jp/author/iwakami">
+			<img alt="岩上貴洋" src="http://211.125.65.24/wp-content/uploads/2013/02/1038e1ba76b608deae26c280bb4facf4_avatar-140x140.jpg" class="avatar avatar-140 photo" height="140" width="140">									<dl>
+				<dt>代表取締役 社長</dt>
+				<dd>岩上貴洋</dd>
+			</dl>
+		</a>
+	</div>
+	<div class="detail_inner" style="display: block;">
+		<a class="close"></a>
+		<div id="detailbox">
+			<div class="memberbody">
+				<div class="memberbody_left">
+					<p class="img"><img src="http://211.125.65.24/wp-content/uploads/2013/02/1038e1ba76b608deae26c280bb4facf4_avatar-240x240.jpg" width="240" height="240" alt="" style="opacity: 1;"></p>
+				</div>
+				<div class="memberbody_right">
+					<h2 class="name">岩上貴洋</h2>
+					<h3 class="position">代表取締役 社長 2007年 入社</h3>
+					<p class="description">学生時代、モバイルマーケティング、ITベンチャー企業数社に参加する。在学中からアーリーステージを対象とした独立系投資会社にて、投資業務、コンサルティング業務に従事。2007年、株式会社LIG創業。</p>
+
+					<div class="link">
+						<a target="_blank" href="https://www.facebook.com/takahiro.iwakami" id="fb_link" style=""><img width="120" height="30" alt="facebook" src="http://liginc.co.jp/wp-content/themes/lig2013/images/member/btn_fb.gif"></a>
+						<a target="_blank" href="https://twitter.com/takataka23313" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="http://liginc.co.jp/wp-content/themes/lig2013/images/member/btn_tw.gif"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="current" style="left: 66.5px;">
+			<img src="http://liginc.co.jp/wp-content/themes/lig2013/images/common/icon_cr_arrow.png" width="45" height="19" alt="">
+		</div>
+	</div>	
+	
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+    	$(function(){
+    		$("[data-toggle=tooltip]").tooltip({
+    			placement: 'bottom'
+    		});
+    		$("[data-toggle=popover]").popover({
+    			placement: 'bottom'
+    		});
+    	});
+</body>
+</html>

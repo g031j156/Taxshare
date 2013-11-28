@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>My Page</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header">
+		<div data-role="header" data-position="inline" data-backbtn="false">
+			<h1>My Title</h1>
+			<a href="index.html" data-icon="gear" class="ui-btn-right">Options</a>
+		</div>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>Hello world</p>
+		<ul data-role="listview" data-inset="true" data-filter="true">
+			<li><a href="#">Acura</a></li>
+			<li><a href="#">Audi</a></li>
+			<li><a href="#">BMW</a></li>
+			<li><a href="#">Cadillac</a></li>
+			<li><a href="#">Ferrari</a></li>
+		</ul>
+		
+		<form>
+			<label for="slider-0">Input slider:</label>
+	 		<input type="range" name="slider" id="slider-0" value="25" min="0" max="100"  />
+		</form>
+		
+		<div data-role="collapsible"> 
+			<h3>開閉式コンテンツ</h3> 
+			<p>ここがコンテンツ部分です。初期状態では表示されており、ヘッダがクリックされると非表示になります。</p> 
+		</div>
+		<a href="index.html" data-role="button" data-inline="true" data-theme="c">編集</a>
+		<a href="index.html" data-role="button" data-inline="true" data-theme="b">削除</a>
+		<a href="index.html" data-role="button" data-inline="true" data-theme="a">締切る</a>
+		<a href="#" data-role="button" data-icon="star" data-theme="b">Star button</a>
+			
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h1>hogehoge</h1>
+	</div><!-- /header -->
+
+</div><!-- /page -->
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+div#header{border-bottom:solid 1px #ffa500;}
+
+div#header div{padding:5px;}
+
+div#header p{
+			font-size:11ex;
+			color:#ffa500;
+			}
+
+div#header img{border-radius:10px;}
+
+div#main{padding:20px 0px 0px 0px;}
+
+div#main p{
+			font-size:20px;
+			color:#ffa500;
+			}
+
+div#member p{
+			font-size: 3ex;
+			color:#ffa500;
+			}
+div#member1>div{
+				padding:0px;height:auto;
+				border:solid 1px #ddd;
+				background:#fff
+				}
+div#member2>div{
+				padding:0px;
+				height:auto;
+				border:solid 1px #ddd;
+				background:#000
+				}
+
+
+a#icon:hover{ background-color: #ddd; }
+
+
+html, body{ height: 100%;}
+div#member{
+	min-height: 100%;
+}
+div.container{
+	background-color:rgba(0, 0, 0, 0.8);
+	min-height: 100%;
+
+}

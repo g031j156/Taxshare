@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>taxshare</title>
+	<meta name="veiwport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen">
+</head>
+<body style="background-image:url(img/taxshare_back.png);">
+	<div id="bg" class="container">
+		<div id="header" style="border-bottom:solid 1px #ffa500;">
+			<div class="row" align="center;">
+				<div class="col-sm-8" style="padding:0px;">
+					<p style="font-size:11ex;color:#ffa500;" align="center">タクシェア！</p>
+				</div>
+				<div class="col-sm-4" style="padding:10px;">
+					<img src="img/taxshare_icon.png" align="center" style="border-radius:10px;">
+				</div>
+			</div>
+		</div>
+		
+		<div id="main">
+			<div class="row" style="padding:20px 0px 0px 0px;">
+				<div class="col-sm-7">
+					<p style="font-size:20px;color:#ffa500;">
+						あなたはこんな経験ありませんか？？<br>
+						「ちょうどいい電車時間がないけど、待ち時間はもったいない…」「○○まで行きたいけど、バスだと高くつく…」そんなときにタクシェアを使えば、ドライバーと交渉して自由で、柔軟な交通手段が手に入ります。まずは依頼したいドライバーの予定を確認してからSNSで直接交渉しましょう！<br>
+						楽しいドライブがあなたを待っています！
+			     	</p>
+			     	<!--<img src="img/google_play_icon.png" width="125" height="40" style="float:left;margin:15px;border-radius:10px;">
+					<img src="img/appstore_icon.png" width="125" height="40" style="float:right;margin:15px;border-radius:10px;">-->
+				</div>
+				<div class="col-sm-5" align="center">
+					<iframe width="280" height="210" src="//www.youtube.com/embed/GAygsPZfKvo?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<div id="member1">
+			<p style="font-size:3ex;color:#ffa500;">メンバー紹介　<span class="label label-info">ドライバー募集中！</span></p>
+
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#fff">
+				<div align="center">
+					<a id="icon" data-toggle="modal" href="#myModal1" style="display:block;">
+						<img src="img/yama_fbicon.jpg" width="140" height="140"><br>予定を確認！
+					</a>
+				</div>
+			</div>
+			
+
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#fff">
+				<div align="center">
+					<a id="icon" data-toggle="modal" href="#myModal2" style="display:block;">
+						<img src="img/rsk_fbicon.jpg" width="140" height="140"><br>予定を確認！
+					</a>
+				</div>
+			</div>
+
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#fff">
+				<div align="center">
+					<a id="icon" data-toggle="modal" href="#myModal3" style="display:block;">
+						<img src="img/turbo_fbicon.jpg" width="140" height="140"><br>予定を確認！
+					</a>
+				</div>
+			</div>
+
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#fff">
+				<div align="center">
+					<a id="icon" data-toggle="modal" href="#myModal4" style="display:block;">
+						<img src="img/ueno_fbicon.jpg" width="140" height="140"><br>予定を確認！
+					</a>
+				</div>
+			</div>
+		</div>
+			<!--live demo 実装途中-->
+			<div class="modal fade" id="myModal1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">○：送迎可能時間</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>発時間</th>
+										<th>11/20(水)</th>
+										<th>11/21(木)</th>
+										<th>11/22(金)</th>
+										<th>11/25(月)</th>
+										<th>11/26(火)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>14:30~15:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　　</td>
+									</tr>
+									<tr>
+										<td>15:30~16:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　　</td>
+									</tr>
+									<tr>
+										<td>16:30~17:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>17:30~18:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>18:30~19:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>19:30~20:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>20:30~21:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>21:30~22:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>22:30~23:30</td>
+										<td>　○</td><td>　○</td><td>　○</td><td>　○</td><td>　○</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<form>
+								<div class="form-group">
+									<label>コンタクトを取る</label>
+									<input id="tweet1" type="text"class="form-control" placeholder="(乗せて欲しい時間)に(目的地)まで乗せて！by @(自分のID)">
+									<button id="btn1" class="btn btn-primary" >ツイートする</button>
+								</div>
+							</form>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal2">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">○：送迎可能時間</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>発時間</th>
+										<th>11/20(水)</th>
+										<th>11/21(木)</th>
+										<th>11/22(金)</th>
+										<th>11/25(月)</th>
+										<th>11/26(火)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>14:30~15:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>15:30~16:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>16:30~17:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>17:30~18:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>18:30~19:30</td>
+										<td>　　</td><td>　○</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>19:30~20:30</td>
+										<td>　　</td><td>　○</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>20:30~21:30</td>
+										<td>　　</td><td>　○</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>21:30~22:30</td>
+										<td>　　</td><td>　○</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>22:30~23:30</td>
+										<td>　　</td><td>　○</td><td>　○</td><td>　　○</td><td>　○</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<form>
+							 	<div class="form-group">
+									<label>コンタクトを取る</label>
+									<input type="text" id="tweet2" class="form-control" placeholder="(乗せて欲しい時間)に(目的地)まで乗せて！by @(自分のID)">
+									<button id="btn2" class="btn btn-primary" >ツイートする</button>
+								</div>
+							</form>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal3">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">○：送迎可能時間</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>発時間</th>
+										<th>11/20(水)</th>
+										<th>11/21(木)</th>
+										<th>11/22(金)</th>
+										<th>11/25(月)</th>
+										<th>11/26(火)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>14:30~15:30</td>
+										<td>　　</td><td>　○</td><td>　　</td><td>　　</td><td>　　</td>
+									</tr>
+									<tr>
+										<td>15:30~16:30</td>
+										<td>　　</td><td>　○</td><td>　　</td><td>　　</td><td>　　</td>
+									</tr>
+									<tr>
+										<td>16:30~17:30</td>
+										<td>　　</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>17:30~18:30</td>
+										<td>　　</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>18:30~19:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>19:30~20:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>20:30~21:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>21:30~22:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>22:30~23:30</td>
+										<td>　○</td><td>　○</td><td>　　</td><td>　　</td><td>　○</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<form>
+								<div class="form-group">
+									<label>コンタクトを取る</label>
+									<input type="text" id="tweet3"class="form-control" placeholder="(乗せて欲しい時間)に(目的地)まで乗せて！by @(自分のID)">
+									<button id="btn3" class="btn btn-primary" >ツイートする</button>
+								</div>
+							</form>														
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="myModal4">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">○：送迎可能時間</h4>
+						</div>
+						<div class="modal-body">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>発時間</th>
+										<th>11/20(水)</th>
+										<th>11/21(木)</th>
+										<th>11/22(金)</th>
+										<th>11/25(月)</th>
+										<th>11/26(火)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>14:30~15:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　　</td>
+									</tr>
+									<tr>
+										<td>15:30~16:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　　</td>
+									</tr>
+									<tr>
+										<td>16:30~17:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>17:30~18:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>18:30~19:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>19:30~20:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>20:30~21:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>21:30~22:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+									<tr>
+										<td>22:30~23:30</td>
+										<td>　　</td><td>　　</td><td>　○</td><td>　　</td><td>　○</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<form>
+								<div class="form-group">
+									<label>コンタクトを取る</label>
+									<input type="text" id="tweet4" class="form-control" placeholder="(乗せて欲しい時間)に(目的地)まで乗せて！by @(自分のID)">
+									<button id="btn4" class="btn btn-primary" >ツイートする</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#000">
+				<font color="#fff">
+					・山本 晃大（あっきー）<br>
+					岩手県立大学ソフトウェア情報学部<br>
+					佐々木研所属　B3<br>
+					スバル　プレオ<br>
+				</font><br>
+				<a target="_blank" href="https://www.facebook.com/akihiro.yamamoto.94617" id="fb_link" ><img width="120" height="30" alt="facebook" src="img/btn_fb.gif" style="margin:6px;"></a>　
+				<a target="_blank" href="https://twitter.com/YmarquisM" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="img/btn_tw.gif"></a>
+			</div>
+		
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#000">
+				<font color="#fff">
+					・菅原 遼介（のびすけ）<br>
+					岩手県立大学大学院ソフトウェア情報学部<br>
+					佐々木研　M2<br>
+					トヨタ　ist<br>
+				</font><br>
+				<a target="_blank" href="https://www.facebook.com/sugawara.ryousuke" id="fb_link" ><img width="120" height="30" alt="facebook" src="img/btn_fb.gif" style="margin:6px;"></a>　
+				<a target="_blank" href="https://twitter.com/n0bisuke" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="img/btn_tw.gif"></a>
+			</div>
+		
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#000">
+				<font color="#fff">
+					・菅原 太一（たーぼう）<br>
+					岩手県立大学ソフトウェア情報学部<br>
+					ゴウタム研　B3<br>
+					三菱　ekスポーツ<br>
+				</font><br>
+				<a target="_blank" href="https://www.facebook.com/taichi.sugawara" id="fb_link" ><img width="120" height="30" alt="facebook" src="img/btn_fb.gif" style="margin:6px;"></a>　
+				<a target="_blank" href="https://twitter.com/Turbo_5296" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="img/btn_tw.gif"></a>
+			</div>
+		
+			<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd;background:#000">
+				<font color="#fff">
+					・上野 拓人（うえの）<br>
+					岩手県立大学ソフトウェア情報学部<br>
+					小方研　B2<br>
+					日産　キューブ<br>
+				</font><br>
+				<a target="_blank" href="https://www.facebook.com/oykmb" id="fb_link" ><img width="120" height="30" alt="facebook" src="img/btn_fb.gif" style="margin:6px;"></a>　
+				<a target="_blank" href="https://twitter.com/oykmb" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="img/btn_tw.gif"></a>
+			</div>
+
+			<h3 align="center">
+				<span class="label label-success">ドライバーのアイコンからスケジュールを確認してフォームからメッセージを送ってください！<br>
+				</span>
+			</h3>
+		</div>
+
+		<div id="footer">
+			<p class="text-center"style="font-size:2ex;">岩手県立大学 タクシェア開発プロジェクトチーム</p>
+		</div>
+	</div>	
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	 <script>
+    	$(function(){
+    		$('#btn1').on('click',function(){
+    		var value = $('#tweet1').val();
+    		$.post('http://love4morioka.appspot.com/tweet?tweet=' + '@YmarquisM ' + value);
+			alert("「"+value+"」がツイートされました．");
+			});
+
+			$('#btn2').on('click',function(){
+    		var value = $('#tweet2').val();
+    		$.post('http://love4morioka.appspot.com/tweet?tweet=' + '@n0bisuke ' + value);
+			alert("「"+value+"」がツイートされました．");
+			});
+
+			$('#btn3').on('click',function(){
+    		var value = $('#tweet3').val();
+    		$.post('http://love4morioka.appspot.com/tweet?tweet=' + '@Turbo_5296 ' + value);
+			alert("「"+value+"」がツイートされました．");
+			});
+
+			$('#btn4').on('click',function(){
+    		var value = $('#tweet4').val();
+    		$.post('http://love4morioka.appspot.com/tweet?tweet=' + '@oykmb ' + value);
+			alert("「"+value+"」がツイートされました．");
+			});
+    	});
+			
+    </script>
+</body>
+</html>
+
+<style type="text/css">
+
+a#icon:hover{ background-color: #ddd; }
+
+html, body{ height: 100%;}
+div#member{
+	min-height: 100%;
+}
+div.container{
+	background-color:rgba(0, 0, 0, 0.8);
+	min-height: 100%;
+
+}
+
+div#footer{
+	bottom: 0;
+	color: #ffffff;
+	position: absolute;
+	width: 100%;
+}
+	
+</style>

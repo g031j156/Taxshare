@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  	<meta charset="utf-8">
+    <title>Bootstrapの練習</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet", media="screen">
+
+  </head>
+  <body>
+	
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".target"> <!-- スマフォ対応-->
+				<span class="icon-bar"> </span>
+				<span class="icon-bar"> </span>
+				<span class="icon-bar"> </span>
+			</button>
+			<a  class="navbar-brand" href="">Dotinstall</a>
+		</div>
+		<div class="collapase navbar-collapse target">	
+			<ul class="nav navbar-nav" >
+				<li class="active"><a href="">Link1</a></li>
+				<li><a href="">Link2</a></li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right" >
+				<li><a href="">Link3</a></li>
+			</ul>
+		</div>
+	</nav>
+	<p>Hello World!</p>
+	<p>Hello World!</p>
+	<p>Hello World!</p>
+	<p>Hello World!</p>
+	<p>Hello World!</p>
+	<div class="container" style="padding:20px; 0">
+
+		<div> 
+				<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd">
+					<div align="center">
+						<a class="accordion-toggle" data-toggle="collapse" data-target="#demo1" style="display:block;">
+							<img src="/yama_fbicon.jpg" width="140" height="140"><br>山本　晃大
+						</a>
+					</div>
+					<div id="demo1" class="collapse" style="background:#000">
+						<font color="#fff">
+							・あっきー<br>
+							岩手県立大学ソフトウェア情報学部<br>
+							佐々木研所属　B3<br>
+							スバル　プレオ<br>
+						</font>
+						<a target="_blank" href="https://www.facebook.com/akihiro.yamamoto.94617" id="fb_link" ><img width="120" height="30" alt="facebook" src="/btn_fb.gif" style="margin:6px;">　</a>
+						<a target="_blank" href="https://twitter.com/YmarquisM" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="/btn_tw.gif"></a>
+					</div>
+				</div>
+			
+				<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd">
+					<div align="center">
+						<a class="accordion-toggle" data-toggle="collapse" data-target="#demo2" style="display:block;">
+							<img src="/yama_fbicon.jpg" width="140" height="140"><br>菅原 遼介
+						</a>
+					</div>
+					<div id="demo2" class="collapse" style="background:#000">
+						<font color="#fff">
+							・のびすけ<br>
+							岩手県立大学大学院ソフトウェア情報学部<br>
+							佐々木研　M2<br>
+							トヨタ　ist<br>
+						</font><br>
+						<a target="_blank" href="https://www.facebook.com/akihiro.yamamoto.94617" id="fb_link" ><img width="120" height="30" alt="facebook" src="/btn_fb.gif" style="margin:6px;">　</a>
+						<a target="_blank" href="https://twitter.com/YmarquisM" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="/btn_tw.gif"></a>
+					</div>
+				</div>
+		
+				<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd">
+					<div align="center">
+						<a class="accordion-toggle" data-toggle="collapse" data-target="#demo3" style="display:block;">
+							<img src="/yama_fbicon.jpg" width="140" height="140"><br>菅原　太一
+						</a>
+					</div>
+					<div id="demo3" class="collapse" style="background:#000">
+						<font color="#fff">
+							・たーぼう<br>
+							岩手県立大学ソフトウェア情報学部<br>
+							ゴウタム研　B3<br>
+							三菱　ekスポーツ<br>
+						</font><br>
+						<a target="_blank" href="https://www.facebook.com/akihiro.yamamoto.94617" id="fb_link" ><img width="120" height="30" alt="facebook" src="/btn_fb.gif" style="margin:6px;">　</a>
+						<a target="_blank" href="https://twitter.com/YmarquisM" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="/btn_tw.gif"></a>
+					</div>
+				</div>
+			
+				<div class="col-sm-3" style="padding:0px;height:auto;border:solid 1px #ddd">
+					<div align="center">
+						<a class="accordion-toggle" data-toggle="collapse" data-target="#demo4" style="display:block;">
+							<img src="/yama_fbicon.jpg" width="140" height="140"><br>上野　拓人
+						</a>
+					</div>
+					<div id="demo4" class="collapse" style="background:#000">
+						<font color="#fff">
+							・うえの<br>
+							岩手県立大学ソフトウェア情報学部<br>
+							小方研　B2<br>
+							日産　キューブ<br>
+						</font><br>
+						<a target="_blank" href="https://www.facebook.com/akihiro.yamamoto.94617" id="fb_link" ><img width="120" height="30" alt="facebook" src="/btn_fb.gif" style="margin:6px;">　</a>
+						<a target="_blank" href="https://twitter.com/YmarquisM" id="tw_link" style=""><img width="120" height="30" alt="twitter" src="/btn_tw.gif"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p>Hello World!</p>
+		<p>Hello World!</p>
+		<p>Hello World!</p>
+		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">
+		アコーディオン開閉
+		</button>
+		 
+		<div id="demo" class="collapse">
+		上のボタンでこのテキストが見え隠れします。
+		</div>
+
+
+		<p><a href="#" data-toggle="tooltip" title="説明">this</a> and
+			<a href="#" data-toggle="popover" title="説明" data-content="岩手県立大学3年ソフトウェア情報学部佐々木研所属">that</a>.</p>
+		
+		
+		
+		<ul class="nav nav-tabs" style="margin-bottom:15px;">
+			<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+			<li><a href="#about" data-toggle="tab">About</a></li>
+		</ul>
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="home">ほーむ</div>
+			<div class="tab-pane" id="about">あばうと</div>
+		</div>
+		
+		
+		<a data-toggle="modal" href="#myModal" class="btn btn-primary">Show me!</a>
+		
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">My Modal</h4>
+					</div>
+					<div class="modal-body">
+						hello!
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary">OK!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="progress progress-striped">
+			<div class="progress-bar progress-bar-info" style="width:60%"></div>			
+		</div>
+		<div class="progress progress-striped active">
+			<div class="progress-bar progress-bar-info" style="width:40%"></div>
+			<div class="progress-bar progress-bar-primary" style="width:20%"></div>
+			<div class="progress-bar progress-bar-warning" style="width:30%"></div>			
+		</div>
+	</div>
+		
+		
+		
+		<p>Product A <span class="label label-primary">New!</span></p>
+		<p>Inbox<span class="badge">5</span></p>
+		<p>Inbox<span class="badge"></span></p>
+		<div class="alert alert-info">
+			<button class="close" data-dismiss="alert">&times;</button>
+			information!
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				お知らせ！
+			</div>
+			<div class="panel-body">
+				hello!
+			</div>
+		</div>
+		<ul class="breadcrumb">
+			<li><a href="">Home</a></li>
+			<li><a href="">User</a></li>
+			<li class="actie">@hoge</li>
+		</ul>
+		
+		<ul class="pagination">
+			<li class="disabled"><a href="">&laquo;</a></li>
+			<li class="active"><a href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+			<li><a href="">&laquo;</a></li>
+		</ul>
+		
+		<ul class="pager">
+			<li class="previous"><a href="">前へ</a></li>
+			<li class="next"><a href="">次へ</a></li>
+		</ul>
+		
+	</div>
+	<form class="form-inline" style="margin-bottom:15px;">
+		<div class="container" style="padding:20px 0">
+			<form>
+				<div class="form-group">
+					<label class="sr-only control-label" for="email">Email</label>
+					
+					<input type="text" id="email" class="form-control" placeholder="email">
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</form>
+		</div>
+	</form>
+	
+	<form class="form-horizontal" style="margin-bottom:15px;">
+		<div class="container" style="padding:20px 0">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">Email</label>
+				<div class="col-sm-4">
+					<input type="text" id="email" class="form-control" placeholder="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">Email</label>
+				<div class="col-sm-4">
+					<input type="text" id="email" class="form-control" placeholder="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-4">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</div>
+			
+		</div>
+	</form>
+	
+	
+	<div class="container" style="padding:20px; 0">
+		
+		<p><i class="glyphicon glyphicon-book"> </i> Book</p> 
+		
+		<div class="btn-group">
+			<button class="btn btn-primary">Push Me!</button>
+			<button class="btn btn-success"> Push Me!</button>
+			<button class="btn btn-info"> Push Me!</button>
+		</div>
+		<div class="btn-group">
+			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				Action <span class="caret"> </span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="">Action</a></li>
+				<li><a href="">Action</a></li>
+				<li class="divider"> </li>
+				<li><a href="">Action</a></li>
+			</ul>
+			
+		</div>
+		
+		<div class="btn-group">
+			<button class="btn btn-primary">Action</button>
+			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				<span class="caret"> </span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="">Action</a></li>
+				<li><a href="">Action</a></li>
+				<li class="divider"> </li>
+				<li><a href="">Action</a></li>
+			</ul>
+			
+		</div>
+		<table class="table table-striped table-bordered table-hover table-condensed ">
+			<thead>
+				<tr><th>ID</th><th>score</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>@hoge</td><td>112</td></tr>
+				<tr class="warning"><td>@fuga</td><td>212</td></tr>
+				<tr><td>@hage</td><td>154</td></tr>
+			</tbody>
+		</table>
+	</div>	
+	
+	<div id="footer" class="container" style="background: blue;">footer</div>
+	<script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    	$(function(){
+    		$("[data-toggle=tooltip]").tooltip({
+    			placement: 'bottom'
+    		});
+    		$("[data-toggle=popover]").popover();
+    		
+    		$('#myCollapsible').collapse({
+				toggle: false
+			});
+    	});
+    </script>
+  </body>
+</html>
