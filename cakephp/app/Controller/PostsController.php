@@ -20,7 +20,8 @@ class PostsController extends AppController {
         $this->set('data', $data);
 		
         $this->set('posts', $this->Post->find('all'));
-		
+		//if予定時間前 → 表示
+		//else if予定時間後 → 非表示
     }
 	
 	public function view($id = null) {	//viewメソッド	

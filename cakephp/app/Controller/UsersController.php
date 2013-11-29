@@ -24,7 +24,7 @@ class UsersController extends AppController {
 	    if ($this->request->is('post')) {
         	if ($this->Auth->login()){
         		$this->Session->write("Auth_user",$this->Auth->user());
-            	return $this->redirect(array('controller' => 'posts', 'action' => ''));
+            	return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
 	        } else {
 	            $this->Session->setFlash('学内アドレスとパスワードが一致しません！', 'default', array(), 'auth');
         	}
@@ -86,34 +86,19 @@ class UsersController extends AppController {
 				$this->Signature->save($this->data);
 
 				$id = $this->Signature->getLastInsertID();
-				$data = array('Signature' => array('id' => $id, 'code' => $signature));
-				 // 更新する項目（フィールド指定）
-				$fields = array('code');
-				 
-				// 更新
-				$this->Signature->save($data, false, $fields);
+				$data = array('Signature' => array('id' => $id, 'code' => $signature));	//更新する内容（データ指定）
+				$fields = array('code');												//更新する項目（フィールド指定）
+				$this->Signature->save($data, false, $fields);							//更新
 
-				$this->_sendmail($this->Signature->getLastInsertID(), $signature);
+				$this->_sendmail($this->Signature->getLastInsertID(), $signature);		//メール送信
 				
-				/*$fields = array('User', 'address');
-				$this->log($address, 'log');
-				$this->User->save($address, false, $fields);
-                //$this->redirect(array('action'=>'login'));	//リダイレクト
-                
-				// 設定読み込み
-				$email = new CakeEmail('gmail');
-				// 送信！
-				$mailRespons = $email->emailformat('text')
-					->template('text_mail')
-					->from( array( 'g031j156@s.iwate-pu.ac.jp' => 'Sender'))
-					->to($address) //$this->data['User']['address']
-					->subject('新規会員登録のお知らせ')
-					->send('本文');
-				//debug($mailRespons);
-				*/
-                $this->redirect(array('controller' => 'users', 'action' => 'login'));				//リダイレクト先のURLを指定
+                $this->redirect(array('controller' => 'users', 'action' => 'login'));	//リダイレクト先のURLを指定
             } 
         }
+	}
+
+	function setting(){
+		$this->set('Auth_user', $this->Auth->user());
 	}
 
 	function _sendmail($id = null, $signature){

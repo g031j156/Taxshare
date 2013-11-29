@@ -1,7 +1,7 @@
 <!-- File: /app/View/Posts/index.ctp -->
 
-<h1>予定一覧</h1>
-<div class="container">
+<h1><span class="text-primary">予定一覧</span></h1>
+<!-- <div class="container"> -->
 <?php
     if($data){
         $i = 0;
@@ -29,7 +29,7 @@
         echo '</div>';
     }
 ?>
-</div>
+
 <!-- <table>						
     <tr>
         <th>タイトル</th>			

@@ -12,7 +12,7 @@
     </title>
 
     <?php
-        echo $this->Html->meta('icon');
+        //echo $this->Html->meta('icon');
 
         echo $this->Html->css('taxshare.generic');
         echo $this->Html->css('bootstrap');
