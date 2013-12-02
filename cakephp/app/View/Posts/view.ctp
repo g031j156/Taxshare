@@ -27,11 +27,11 @@
 				<?php 
 				if($post['Post']['user_id'] == $user){
 					echo $this->Html->link('編集', array('action' => 'edit', $post['Post']['id'])); 
-				 	echo $this->Form->postlink('削除', array('action' => 'delete', $post['Post']['id']));
+				 	echo $this->Html->link('削除', array('action' => 'delete', $post['Post']['id']));
 				}else{
-					echo $this->Form->create('Post');
-					echo $this->Form->input('contact', array('label' => false, 'placeholder' => 'コンタクトを取る'));
-					echo $this->Form->submit('送信！');
+					echo '<button type="button" class="btn btn-success">';
+					echo $this->Html->link('送信！', array('action' => 'offer', $user, $view));
+					echo '</button>';
 				}
 				?>
 			</p>

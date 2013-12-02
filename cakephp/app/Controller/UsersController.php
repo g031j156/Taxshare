@@ -56,12 +56,12 @@ class UsersController extends AppController {
 		$fields = array('id', 'username', 'password', 'address', 'created');
 		$this->User->save($data, false, $fields);
 
-		$this->log($data, 'log');
+		//$this->log($data, 'log');
 		$this->Signature->id = $sig_data['Signature']['id'];
 		$this->Signature->delete();
 		$this->redirect(array('controller' => 'users', 'action' => 'login'));
 
-	    // $this->log($sig_data, 'log');
+	    
   //       if($sig_data){
   //       	$this->User->create();
   //       	$this->Uesr->set(array('username' => $sig_data['Signature']['username'],
@@ -111,7 +111,7 @@ class UsersController extends AppController {
 		$body = array('msg' => $signature);
 		// 送信！
 		$mailRespons = $email->emailformat('text')
-			->template('text_mail','text_layout')
+			->template('entry_mail','text_layout')
 			->viewVars($body)
 			->from( array( 'g031j156@s.iwate-pu.ac.jp' => 'タクシェア！'))
 			->to($address)

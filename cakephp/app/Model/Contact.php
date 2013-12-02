@@ -1,6 +1,7 @@
 <?php
 class Contact extends AppModel {
-	public $belongsTo = 'Post';
-	public $belongsTo = 'User';
+	var $name = 'Contact';
+	var $useTable = 'contacts';
+	public $belongsTo = array('Post', 'User');
 }
 ?>

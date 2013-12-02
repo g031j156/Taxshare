@@ -5,15 +5,16 @@ class Post extends AppModel {
 	var $virtualFields = array(
 		'start_id' => 'Start.name', //Post.start_idにVenue.nameを充てる
 		'goal_id' => 'Goal.name'	//Post.goal_idにVenue.nameを充てる 
-		
 		);
 		
-		var $belongsTo = array(
-				//'仮想テーブル名'=>array('className'=> '取得先テーブル名', 'foreignKey' => '取得元カラム名')
-				'Start' =>array('className' => 'Venue','foreignKey' => 'start_id'),	
-				'Goal' =>array('className' => 'Venue','foreignKey' => 'goal_id')	//Post.goal_idにVenue.nameを充てる 
+	public $belongsTo = array(
+			//'仮想テーブル名'=>array('className'=> '取得先テーブル名', 'foreignKey' => '取得元カラム名')
+			'Start' =>array('className' => 'Venue','foreignKey' => 'start_id'),	
+			'Goal' =>array('className' => 'Venue','foreignKey' => 'goal_id')	//Post.goal_idにVenue.nameを充てる 
 
-			);
+		);
+
+	public $hasMany = 'contact';
 
 	public $validate = array(
 		'name' => array(

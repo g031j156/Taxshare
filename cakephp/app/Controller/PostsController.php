@@ -6,7 +6,7 @@ class PostsController extends AppController {
     public $helpers = array('Html', 'Form');
 	
     public $components = array('Auth');
-    public $uses = array('Post', 'User', 'Venue');
+    public $uses = array('Post', 'User', 'Venue', 'Contact');
 
 	public function beforeFilter() {
     parent::beforeFilter();
@@ -39,6 +39,7 @@ class PostsController extends AppController {
         if (!$post) {
             throw new NotFoundException(__('Invalid post'));
         }
+        $this->set('view', $id);
         $this->set('user', $this->Auth->user('id'));
         $this->set('post', $post);
     }
@@ -98,8 +99,13 @@ class PostsController extends AppController {
 	    }
 	}
 
-	public function offer(){	//入札関数
-
+	function offer($user, $view){	//入札関数
+		$this->log($user, 'log');
+		$this->log($view, 'log');
+		$this->Contact->create();
+		$data = array('Contact' => array('user_id' => $user,'post_id' => $view));
+		$this->Contact->save($data);
+		$this->redirect('index');
 	}
 
 	public function contact(){	//マッチング関数
