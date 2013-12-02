@@ -23,6 +23,10 @@ class PostsController extends AppController {
 		//if予定時間前 → 表示
 		//else if予定時間後 → 非表示
     }
+
+    public function driver(){
+    	$this->set($this->User->find('all'));
+    }
 	
 	public function view($id = null) {	//viewメソッド	
         if (!$id) {
@@ -93,6 +97,33 @@ class PostsController extends AppController {
 	        return $this->redirect(array('action' => 'index'));
 	    }
 	}
+
+	public function offer(){	//入札関数
+
+	}
+
+	public function contact(){	//マッチング関数
+
+	}
+
+	function _sendmail($id = null, $signature){
+		$data = $this->Signature->findById($id);
 		
+		$address = $this->data["Signature"]["username"]."@s.iwate-pu.ac.jp";
+		//$this->log($signature, 'log');
+		
+		$email = new CakeEmail('gmail');
+		$body = array('msg' => $signature);
+		// 送信！
+		$mailRespons = $email->emailformat('text')
+			->template('entry_mail','text_layout')
+			->viewVars($body)
+			->from( array( 'g031j156@s.iwate-pu.ac.jp' => 'タクシェア！'))
+			->to($address)
+			->subject('タクシェア会員仮登録完了のお知らせ')
+			->send();
+		//debug($mailRespons);
+		
+	} 		
 }
 ?>
