@@ -17,21 +17,23 @@
 				?>
 			</h1>
 			<p>
-				<?php echo ($post['Post']['start_id']); ?>
+				<?php echo ($post['Goal']['name']); ?>
 				<?php echo " から "?>
-				<?php echo ($post['Post']['goal_id']); ?>
+				<?php echo ($post['Start']['name']); ?>
 				<?php echo " まで "?><br /><br />
 				出発日時: <?php echo $post['Post']['encount']; ?><br />
-				締切日時: <?php echo $post['Post']['limit']; ?><br />
 				<br />
 				<?php 
 				if($post['Post']['user_id'] == $user){
 					echo $this->Html->link('編集', array('action' => 'edit', $post['Post']['id'])); 
 				 	echo $this->Html->link('削除', array('action' => 'delete', $post['Post']['id']));
 				}else{
-					echo '<button type="button" class="btn btn-success">';
+					echo '<button type="button" class="btn btn-default">';
 					echo $this->Html->link('送信！', array('action' => 'offer', $user, $view));
 					echo '</button>';
+				}
+				foreach ($post['Contact'] as $key => $contact){
+					echo $contact['User']['username'];
 				}
 				?>
 			</p>
