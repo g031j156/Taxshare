@@ -1,7 +1,16 @@
 <?php
 App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel{
-	public $hasMany = 'Contact';
+	var $name = 'User';
+    var $useTable = 'users';
+	public $hasMany = 'Contact';//array('contacts' =>
+ //        array(
+ //            'className' => 'contacts',
+ //            'conditions' => 'contacts.user_id = users.id',
+ //            'order' => 'users.name ASC',
+ //            'foreignKey' => ''));
+
+
 	public $validate = array(	
 		'username' => array(
             'required' => array(
@@ -15,7 +24,8 @@ class User extends AppModel{
                 'allowEmpty' => false,
                 'message' => '5〜12文字で入力してください'
             )
-        ));
+        )
+    );
 		/*'address' => array(
 			'rule' => array('domain'),
 			'required' => true,

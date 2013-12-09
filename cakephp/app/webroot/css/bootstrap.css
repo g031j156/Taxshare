@@ -808,8 +808,8 @@ pre code {
 }
 
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .row:before,
@@ -5618,7 +5618,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -5627,7 +5627,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .panel-body:before,

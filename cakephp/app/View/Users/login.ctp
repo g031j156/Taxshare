@@ -21,13 +21,14 @@
     ?>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+   
 </head>
+
 <body>
-    <div class="users form">
+    <div align="center">
         <a href="https://www.facebook.com/taxshare" target="blank">
             <img src="../img/taxshare/title_icon.png" width="350" height="95" alt="home">
         </a>
-        
         <?php echo $this->Session->flash('auth'); ?>
         <?php echo $this->Form->create('User'); ?>
             <fieldset name="form">
@@ -37,6 +38,7 @@
                 echo $this->Form->input('password', array('label'=> "パスワード"));
             ?>
             </fieldset>
+
         <?php echo $this->Form->end(__('ログイン')); ?>
 
         <a class="btn btn-primary" href="add">新規登録</a>

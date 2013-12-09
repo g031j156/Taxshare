@@ -1,12 +1,12 @@
 <?php
 class Venue extends AppModel{
-	var $name = 'venues';
+	var $name = 'Venue';
     var $useTable = 'venues';
-    var $belongsTo = array('posts' =>
-        array(
-            'className' => 'posts',
-            'conditions' => 'posts.postsid = venues.id',
-            'order' => 'venues.id ASC',
-            'foreignKey' => ''));
+    var $belongsTo = 'Post';//array('posts' =>
+    //     array(
+    //         'className' => 'posts',
+    //         'conditions' => 'posts.id = Venue.id',
+    //         'order' => 'venues.id ASC',
+    //         'foreignKey' => ''));
 }
 ?>

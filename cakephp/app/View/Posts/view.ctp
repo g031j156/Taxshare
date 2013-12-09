@@ -1,11 +1,38 @@
-<div class="container">
+<!-- <div class="container"> -->
 	<div class="row">
-		<div class="col-sm-6">
-			<h1>依頼主<br></h1>
-			<h2><?php echo $client['User']['username'] ?></h2>
-			<h2><?php echo $client['User']['address'] ?></h2>
+		<div class="col-xs-6" style="padding-right:10px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2>依頼主<br></h2>
+				</div>
+				<div class="panel-body">
+					<h3>ユーザー名：<?php echo $client['User']['username'] ?></h3>
+					<h3>アドレス：<?php echo $client['User']['address'] ?></h3>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2>コンタクト依頼者一覧</h2>
+				</div>
+				<div class="panel-body">
+					<ui style="list-style-type:none;">
+						<?php
+						foreach ($post['Contact'] as $key => $contact){
+						echo "<li><h3>".$contact['User']['username'];
+						if($post['Post']['user_id'] == $user){
+							echo '<button type="button" class="btn btn-default" style="float:right">';
+							echo $this->Html->link('承認する', array('action' => 'contact', $contact['User']['id']));
+							echo '</button></h3></li>';
+							/*echo '<a href="#" class="btn btn-success active" role="button" style="float:right">承認する</a></h3></li>';*/
+							}
+						}
+						?>
+					</ui>
+				</div>
+			</div>
+			
 		</div>
-		<div class="col-sm-6">
+		<div class="col-xs-6" style="padding-right:10px">
 			<h1>
 				<?php
 				//$post = $this->Post->findById($id);;
@@ -25,16 +52,18 @@
 				<br />
 				<?php 
 				if($post['Post']['user_id'] == $user){
-					echo $this->Html->link('編集', array('action' => 'edit', $post['Post']['id'])); 
+					echo '<button type="button" class="btn btn-default btn-lg">';
+					echo $this->Html->link('編集', array('action' => 'edit', $post['Post']['id']));
+					echo '</button><br><br>';
+					echo '<button type="button" class="btn btn-default btn-lg">'; 
 				 	echo $this->Html->link('削除', array('action' => 'delete', $post['Post']['id']));
+				 	echo '</button>';
 				}else{
-					echo '<button type="button" class="btn btn-default">';
-					echo $this->Html->link('送信！', array('action' => 'offer', $user, $view));
+					echo '<button type="button" class="btn btn-default btn-lg">';
+					echo $this->Html->link('コンタクトを取る！', array('action' => 'offer', $user, $view));
 					echo '</button>';
 				}
-				foreach ($post['Contact'] as $key => $contact){
-					echo $contact['User']['username'];
-				}
+				
 				?>
 			</p>
 		</div>

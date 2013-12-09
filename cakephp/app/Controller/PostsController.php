@@ -18,8 +18,10 @@ class PostsController extends AppController {
     public function index() {	//indexメソッド
         $data = $this->User->find('all', array('order'=>'User.id desc'));
         $this->set('data', $data);
-		
-        $this->set('posts', $this->Post->find('all'));
+		$date = date("Y-m-d H:i:s", time());
+        $this->set('posts', $this->Post->find('all',
+        	array('conditions' => array(
+			'Post.encount BETWEEN ? AND ?' => array($date, "2100-01-01 00:00:00")))));
 		//if予定時間前 → 表示
 		//else if予定時間後 → 非表示
     }
@@ -28,12 +30,16 @@ class PostsController extends AppController {
     	$this->set($this->User->find('all'));
     }
 	
-	public function view($id = null) {	//viewメソッド	
+	public function view($id) {	//viewメソッド	
         if (!$id) {
             throw new NotFoundException(__('Invalid post'));
         }
 		
+        $this->Post->recursive = 2;
+        $this->Post->Contact->unbindModel(array(
+		    'belongsTo' => array('Post')));
         $post = $this->Post->findById($id);
+        //$this->log($post['contact']['0']['user_id'], 'log');
         $client = $this->User->findById($post['Post']['user_id']);
         $this->set('client',$client);
         if (!$post) {
@@ -100,16 +106,19 @@ class PostsController extends AppController {
 	}
 
 	function offer($user, $view){	//入札関数
-		$this->log($user, 'log');
-		$this->log($view, 'log');
 		$this->Contact->create();
 		$data = array('Contact' => array('user_id' => $user,'post_id' => $view));
 		$this->Contact->save($data);
 		$this->redirect('index');
 	}
 
-	public function contact(){	//マッチング関数
+	public function usage(){	//使い方ページ
 
+	} 
+
+	public function contact($contact){	//マッチング関数
+		$this->log($contact ,"log");
+		$this->redirect(array('action' => 'index'));
 	}
 
 	function _sendmail($id = null, $signature){

@@ -26,14 +26,13 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 </head>
 <body>
-    <div class="actions">
+    <div align="center">
     	<a href="https://www.facebook.com/taxshare" target="blank">
             <img src="../img/taxshare/title_icon.png" width="350" height="95" alt="home">
         </a>
-	</div>		
-	<div class="users form">
-	<?php echo $this->Form->create('Signature'); ?>
-	    <fieldset>
+
+    	<?php echo $this->Form->create('Signature'); ?>
+	    <fieldset align="center">
 	        <legend>新規登録</legend>
 	    	<?php 
 	    		

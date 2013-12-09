@@ -45,7 +45,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<link rel="icon" href="../img/taxshare/icon_16.png" type="image/png" />
 </head>
 <body>
-	<div class="row" id="content">
+	<div id="content">
 		<div class="col-sm-3">	
 			<div class="row" align="center">
 				<?php echo $this->Html->image('taxshare/title_icon.png', array('width'=>'350','height'=>'95')); ?>
@@ -55,6 +55,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<div class="col-sm-6" align="left">
 					<h3><?php echo $Auth_user['username']; ?></h3>
 					<ul>
+						<li>所属学部</li>
 						<li>乗車可能人数</li>
 						<li>ポイント</li>
 					</ul>
@@ -85,7 +86,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			      	<ul class="nav navbar-nav">
 				      	<li><a href="/~offside_now/yama/cakephp/posts/index">一覧</a></li>
 				        <li><a href="/~offside_now/yama/cakephp/posts/add">予定登録</a></li>
-				    	<li><a href="#">使い方</a></li>
+				    	<li><a href="/~offside_now/yama/cakephp/posts/usage">使い方</a></li>
 				    	<li><a href="/~offside_now/yama/cakephp/posts/driver">ドライバー紹介</a></li>
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right">

@@ -10,6 +10,5 @@ echo $this->Form->input('dpflag', array('label' => 'タイトル', 'type' => 'se
 echo $this->Form->input('start_id', array('label' => '出発地', 'type' => 'select', 'options' => $venue, 'selected' => $post['Start']['id']));
 echo $this->Form->input('goal_id', array('label' => '目的地', 'type' => 'select', 'options' => $venue, 'selected' => $post['Goal']['id']));
 echo $this->Form->input('encount', array('label' => '出発時間'));
-echo $this->Form->input('limit', array('label' => '締切日時'));
     echo $this->Form->end('変更');							//submit
 ?>

@@ -1,9 +1,18 @@
 <!-- File: /app/View/Posts/index.ctp -->
 
+<h3><span class="text-primary">-----予定検索-----</span></h3>
+<!-- すべて表示ボタン-->
+<a class="btn btn-primary" role="button">すべて</a>
+<!-- 絞り込むボタン　どういう条件で絞り込むか不明．　ポップアップ形式が望ましい？-->
+<a class="btn btn-primary" role="button">絞り込む</a>
+
+<br><br><br>
+
 <h1><span class="text-primary">予定一覧</span></h1>
 <!-- <div class="container"> -->
 <?php
     if($data){
+        $this->log($posts, 'log');
         $i = 0;
         echo '<div id="member" class="row">';
         foreach ($posts as $key => $value) { 
@@ -15,12 +24,12 @@
             echo '<div class="col-xs-3">';
             if($value['Post']['dpflag'] == 0){
                 echo '<a class="btn btn-primary" role="button" href="/~offside_now/yama/cakephp/posts/view/'.$value['Post']['id'].'" style="display:block">'.'<h2>乗せるよ！</h2><br>'
-                    .'<p>'.$value['Post']['start_id'].' 〜 '.$value['Post']['goal_id'].'<br>'
+                    .'<p>'.$value['Start']['name'].' 〜 '.$value['Goal']['name'].'まで<br>'
                     .$value['Post']['encount'].'に待ち合わせ</p></a>';
                 //echo $this->debug($value['Venue']['venue'], log);
             }elseif($value['Post']['dpflag'] == 1){
                 echo '<a class="btn btn-success" role="button" href="/~offside_now/yama/cakephp/posts/view/'.$value['Post']['id'].'" style="display:block">'.'<h2>乗りたい！</h2><br>'
-                    .'<p>'.$value['Post']['start_id'].' 〜 '.$value['Post']['goal_id'].'<br>'
+                    .'<p>'.$value['Start']['name'].' 〜 '.$value['Goal']['name'].'まで<br>'
                     .$value['Post']['encount'].'に待ち合わせ</p></a>';
             }
             echo '</div>';
