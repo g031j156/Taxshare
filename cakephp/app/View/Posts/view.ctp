@@ -21,7 +21,7 @@
 						echo "<li><h3>".$contact['User']['username'];
 						if($post['Post']['user_id'] == $user){
 							echo '<button type="button" class="btn btn-default" style="float:right">';
-							echo $this->Html->link('承認する', array('action' => 'contact', $contact['User']['id']));
+							echo $this->Html->link('承認する', array('action' => 'contact', $contact['User']['id'], $view));
 							echo '</button></h3></li>';
 							/*echo '<a href="#" class="btn btn-success active" role="button" style="float:right">承認する</a></h3></li>';*/
 							}
@@ -63,7 +63,6 @@
 					echo $this->Html->link('コンタクトを取る！', array('action' => 'offer', $user, $view));
 					echo '</button>';
 				}
-				
 				?>
 			</p>
 		</div>

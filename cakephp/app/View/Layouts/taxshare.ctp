@@ -43,6 +43,18 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 	<link rel="shortcut icon" href="../img/taxshare/icon_16.png" type="image/png" />
 	<link rel="icon" href="../img/taxshare/icon_16.png" type="image/png" />
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+　  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+ 　 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  　<link rel="stylesheet" href="/resources/demos/style.css" />
+  　<script>
+  　$(function() {
+ 　 		$.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+ 　 		$( "#datepicker" ).datepicker();
+		$.datepicker.formatDate( "yy/mm/dd" );
+ 　 });
+  </script>
 </head>
 <body>
 	<div id="content">

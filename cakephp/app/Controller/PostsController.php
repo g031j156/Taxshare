@@ -19,9 +19,17 @@ class PostsController extends AppController {
         $data = $this->User->find('all', array('order'=>'User.id desc'));
         $this->set('data', $data);
 		$date = date("Y-m-d H:i:s", time());
-        $this->set('posts', $this->Post->find('all',
-        	array('conditions' => array(
-			'Post.encount BETWEEN ? AND ?' => array($date, "2100-01-01 00:00:00")))));
+		$schedule = $this->Post->find('all',
+				        	array('conditions' => array(
+							'Post.encount BETWEEN ? AND ?' => array("2000-01-01 00:00:00", $date))));
+        $this->log($schedule, 'log');
+        foreach($schedule as $key => $schedule){
+        	$this->Post->read(null, $schedule['Post']['id']);
+        	$this->Post->set('stateflag', 1);
+        	$this->Post->save();
+        }
+
+        $this->set('posts', $this->Post->find('all', array('conditions' => array('Post.stateflag' => 0))));
 		//if予定時間前 → 表示
 		//else if予定時間後 → 非表示
     }
@@ -32,7 +40,7 @@ class PostsController extends AppController {
 	
 	public function view($id) {	//viewメソッド	
         if (!$id) {
-            throw new NotFoundException(__('Invalid post'));
+            throw new NotFoundException(__('そのようなスケジュールは登録されていません！'));
         }
 		
         $this->Post->recursive = 2;
@@ -43,7 +51,7 @@ class PostsController extends AppController {
         $client = $this->User->findById($post['Post']['user_id']);
         $this->set('client',$client);
         if (!$post) {
-            throw new NotFoundException(__('Invalid post'));
+            throw new NotFoundException(__('そのようなスケジュールは登録されていません！'));
         }
         $this->set('view', $id);
         $this->set('user', $this->Auth->user('id'));
@@ -68,7 +76,7 @@ class PostsController extends AppController {
 	 
 	public function edit($id = null) {	//editメソッド
 	    if (!$id) {													//idが存在しない場合エラーメッセージ
-	        throw new NotFoundException(__('Invalid post'));
+	        throw new NotFoundException(__('編集するスケジュールはみつかりませんでした。'));
 	    }
 		
 	    $post = $this->Post->findById($id);							//idのpostが存在しない場合エラーメッセージ
@@ -106,18 +114,38 @@ class PostsController extends AppController {
 	}
 
 	function offer($user, $view){	//入札関数
-		$this->Contact->create();
+		// if (!) {
+  //           throw new NotFoundException(__('入札するスケジュールがみつかりませんでした。'));
+  //       }
+        //重複コンタクトを防ぐ
+        if(!$this->Contact->findByUser_idAndPost_id($user, $view)){
+        	$this->Contact->create();
 		$data = array('Contact' => array('user_id' => $user,'post_id' => $view));
 		$this->Contact->save($data);
-		$this->redirect('index');
+		$this->redirect('index');	
+        }else{
+        	throw new NotFoundException(__('既にコンタクト依頼済みです！'));	
+        }
+
+		
 	}
 
 	public function usage(){	//使い方ページ
 
 	} 
 
-	public function contact($contact){	//マッチング関数
+	public function contact($contact, $id){	//マッチング関数
+		if (!$contact) {
+            throw new NotFoundException(__('そのようなコンタクトは依頼されていません！'));
+        }
+
+        $this->Post->read(null, $id);
+        $this->Post->set('stateflag', 1);
+        $this->Post->save();
 		$this->log($contact ,"log");
+
+		//$contact 宛に落札成功のメールを送信する
+		//$contact 以外に落札失敗のメールを送信する
 		$this->redirect(array('action' => 'index'));
 	}
 
@@ -125,7 +153,6 @@ class PostsController extends AppController {
 		$data = $this->Signature->findById($id);
 		
 		$address = $this->data["Signature"]["username"]."@s.iwate-pu.ac.jp";
-		//$this->log($signature, 'log');
 		
 		$email = new CakeEmail('gmail');
 		$body = array('msg' => $signature);

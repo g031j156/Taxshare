@@ -32,7 +32,7 @@
         </a>
 
     	<?php echo $this->Form->create('Signature'); ?>
-	    <fieldset align="center">
+	    <fieldset name="form">
 	        <legend>新規登録</legend>
 	    	<?php 
 	    		

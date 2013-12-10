@@ -12,7 +12,6 @@
 <!-- <div class="container"> -->
 <?php
     if($data){
-        $this->log($posts, 'log');
         $i = 0;
         echo '<div id="member" class="row">';
         foreach ($posts as $key => $value) { 
