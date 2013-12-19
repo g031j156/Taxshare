@@ -12,7 +12,9 @@ class Post extends AppModel {
 
 	public $hasMany = 'Contact';
 
-	// public $validate = array(
+	public $validate = array(
+		// 'start_id' => array(
+		// 	'rule' => '')
 	// 	'dpflag' => array(
 	// 		'rule' => array('driverconditions', 1),
 	// 		'message' => 'ドライバー登録がされていないため依頼できません。'
@@ -24,7 +26,7 @@ class Post extends AppModel {
   //               'message' => '5〜12文字で入力してください'
   //           )
   //       )
-	//);
+	);
 
 	function driverconditions($flag, $id){
 		$data = $this->User->findById($id);

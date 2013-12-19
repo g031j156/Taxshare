@@ -62,7 +62,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="row" align="center">
 				<?php echo $this->Html->image('taxshare/title_icon.png', array('width'=>'350','height'=>'95')); ?>
 				<div class="col-sm-6">
-					<?php echo $this->Html->image('taxshare/icon.png', array('width'=>'140','height'=>'140')); ?>
+					<?php echo $this->Html->image('taxshare/defaulticon.jpeg', array('width'=>'140','height'=>'140')); ?>
 				</div>
 				<div class="col-sm-6" align="left">
 					<h3><?php echo $Auth_user['username']; ?></h3>
@@ -74,17 +74,24 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</div>
 			</div>
 			<div id="userslog" align="center">
-				過去のログとか...<br>
-				（誰を乗せたか）<br>
-				（総移動距離とか）<br>
-				（乗せた人数とか）<br>
-				・<br>
-				・<br>
-				・<br>
+				<h4>過去のログとか...<br></h4>
+				<p>
+				<?php 
+				foreach ($user_log as $key => $user_log){
+					if($user_log['Post']['dpflag'] == 1 && $user_log['Post']['contacter_id'] != 0){
+						echo $user_log['Post']['encount']."：<br />";
+						echo $user_log['Contact']['0']['User']['username']."に".$user_log['Start']['name']."から".$user_log['Goal']['name']."まで乗せてもらった<br /><br />";
+					}else if($user_log['Post']['dpflag'] == 0 && $user_log['Post']['contacter_id'] != 0){
+						echo $user_log['Post']['encount']."：<br />";
+						echo $user_log['Contact']['0']['User']['username']."を".$user_log['Start']['name']."から".$user_log['Goal']['name']."まで乗せていった<br /><br />";
+					}
+				}
+				?>
+				</p>
 			</div>
 		</div>
 		
-		<div class="col-sm-9" style="border-left:1px solid #666">	
+		<div class="col-sm-9" >	
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".target">

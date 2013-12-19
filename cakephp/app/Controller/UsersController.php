@@ -4,11 +4,14 @@ App::uses('CakeEmail','Network/Email');
 
 class UsersController extends AppController {
     public $helpers = array('Html', 'Form');
-	public $components = array('Auth');
+	public $components = array(
+		'Auth' => array(
+			'authError' => 'ログインしてください。'));
 	public $uses = array('Post', 'User', 'Signature');
 	
 	public function beforeFilter() {
     parent::beforeFilter();
+    $this->Auth->authError = "ログインしてください。";
     $this->set('Auth_user', $this->Auth->user(''));
     //$this->Auth->allow('add'); // ユーザーに自身で登録させる
 	}
@@ -24,7 +27,19 @@ class UsersController extends AppController {
 	    if ($this->request->is('post')) {
         	if ($this->Auth->login()){
         		$this->Session->write("Auth_user",$this->Auth->user());
-            	return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
+		        $this->Post->recursive = 2;
+		        $this->Post->Contact->unbindModel(array(
+				    'belongsTo' => array('Post')));
+        		$post = $this->Post->find('all', array(
+        										'conditions' => array("OR" => array(
+        														'Post.user_id' => $this->Auth->user('id'),
+        														'Post.contacter_id' => $this->Auth->user('id')
+        														))
+        										)     	
+        		);
+        		// $this->log($post,'log');
+        		$this->Session->write("user_log", $post);
+               	return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
 	        } else {
 	            $this->Session->setFlash('学内アドレスとパスワードが一致しません！', 'default', array(), 'auth');
         	}
@@ -79,7 +94,7 @@ class UsersController extends AppController {
 	public function add() {	//新規登録メソッド
 		$this->layout = null;
 		if (!empty($this->data)) {							//リクエストメソッドがpostだったら以下を実行
-            if ($this->data) {								//リクエストデータを保存できたら以下を実行	
+            //if ($this->data) {								//リクエストデータを保存できたら以下を実行	
                 //$address = $this->data["Signature"]["username"]."@s.iwate-pu.ac.jp";
                 $this->Signature->create();
 				$signature = $this->_signature();
@@ -93,12 +108,30 @@ class UsersController extends AppController {
 				$this->_sendmail($this->Signature->getLastInsertID(), $signature);		//メール送信
 				
                 $this->redirect(array('controller' => 'users', 'action' => 'login'));	//リダイレクト先のURLを指定
-            } 
+            //} 
         }
 	}
 
 	function setting(){
 		$this->set('Auth_user', $this->Auth->user());
+
+		if(!empty($this->data)){
+			$this->User->findById($this->Auth->user('id'));
+
+			$data = array('User' => array('id' => $this->Auth->user('id') ,
+									  'driverflag' => 1,
+									  'gender' => $this->data['User']['gender'],
+									  'grade' => $this->data['User']['grade'],
+									  'faculty' => $this->data['User']['faculty'],
+									  'hobby' => $this->data['User']['hobby'],
+									  'club' => $this->data['User']['club'],
+									  'subculture' => $this->data['User']['subculture'],
+									  'capacity' => $this->data['User']['capacity'],
+									  'comment' => $this->data['User']['comment']));
+		
+			$fields = array('id', 'driverflag', 'gender', 'grade', 'faculty', 'hobby', 'club', 'subculture', 'capacity', 'comment');
+			$this->User->save($data, false, $fields);
+		}
 	}
 
 	function _sendmail($id = null, $signature){

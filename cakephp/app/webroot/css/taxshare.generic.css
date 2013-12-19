@@ -84,7 +84,7 @@ p {
 }
 
 /** containers **/
-div.form,
+
 div.index,
 div.view {
 	float:right;
@@ -231,12 +231,12 @@ dd {
 }
 
 /** Forms **/
-form {
+/*form {
 	clear: both;
 	margin-right: 20px;
 	padding: 0;
 	width: 95%;
-}
+}*/
 fieldset {
 	border: none;
 	margin-bottom: 1em;

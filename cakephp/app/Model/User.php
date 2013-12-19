@@ -1,8 +1,6 @@
 <?php
-App::uses('AuthComponent', 'Controller/Component');
 class User extends AppModel{
 	var $name = 'User';
-    var $useTable = 'users';
 	public $hasMany = 'Contact';//array('contacts' =>
  //        array(
  //            'className' => 'contacts',
@@ -24,7 +22,57 @@ class User extends AppModel{
                 'allowEmpty' => false,
                 'message' => '5〜12文字で入力してください'
             )
+        ),	
+		'gender' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '性別を選択してくだい'
+            )
+        ),	
+		'grade' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '学年を選択してくだい'
+            )
+        ),	
+		'faculty' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '学部を選択してくだい'
+            )
+        ),	
+		'data["User"]["hobby"]' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '趣味を入力してください'
+            )
+        ),	
+		'club' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '所属サークル等を入力してください'
+            )
+        ),	
+		'from' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '出身地を選択してください'
+            )
+        ),	
+		'subculture' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '好きなものを入力してください'
+            )
+        ),	
+		'capacity' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => '最大乗車可能人数を入力してくだい'
+            )
         )
+
+
     );
 		/*'address' => array(
 			'rule' => array('domain'),

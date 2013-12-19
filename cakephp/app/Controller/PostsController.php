@@ -10,28 +10,30 @@ class PostsController extends AppController {
 
 	public function beforeFilter() {
     parent::beforeFilter();
-    $Auth_user = $this->Session->read('Auth_user');
-    $this->set('Auth_user', $Auth_user);
-    //$this->Auth->allow('add'); // ユーザーに自身で登録させる
+    // $Auth_user = 
+    // $user_log = 
+    $this->set('Auth_user', $this->Session->read('Auth_user'));
+    $this->log($this->Session->read('user_log'), 'log');
+    $this->set('user_log', $this->Session->read('user_log'));
 	}
 
     public function index() {	//indexメソッド
         $data = $this->User->find('all', array('order'=>'User.id desc'));
         $this->set('data', $data);
-		$date = date("Y-m-d H:i:s", time());
+		$date = date("Y-m-d H:i:s", time());	//現在時刻取得
+		//出発時間を過ぎたスケジュールのみ取得
 		$schedule = $this->Post->find('all',
 				        	array('conditions' => array(
-							'Post.encount BETWEEN ? AND ?' => array("2000-01-01 00:00:00", $date))));
-        $this->log($schedule, 'log');
+							'Post.encount BETWEEN ? AND ?' => array("0000-00-00 00:00:00", $date))));
+        
+        //stateflag = 1　の処理
         foreach($schedule as $key => $schedule){
         	$this->Post->read(null, $schedule['Post']['id']);
         	$this->Post->set('stateflag', 1);
         	$this->Post->save();
         }
-
+        //stateflagが0だったら表示 stateflag=0 の条件：コンタクト未完了且つ出発時間前
         $this->set('posts', $this->Post->find('all', array('conditions' => array('Post.stateflag' => 0))));
-		//if予定時間前 → 表示
-		//else if予定時間後 → 非表示
     }
 
     public function driver(){
@@ -42,23 +44,22 @@ class PostsController extends AppController {
         if (!$id) {
             throw new NotFoundException(__('そのようなスケジュールは登録されていません！'));
         }
-		
+        
         $this->Post->recursive = 2;
         $this->Post->Contact->unbindModel(array(
 		    'belongsTo' => array('Post')));
         $post = $this->Post->findById($id);
         //$this->log($post['contact']['0']['user_id'], 'log');
         $client = $this->User->findById($post['Post']['user_id']);
-        $this->set('client',$client);
-        if (!$post) {
-            throw new NotFoundException(__('そのようなスケジュールは登録されていません！'));
-        }
-        $this->set('view', $id);
-        $this->set('user', $this->Auth->user('id'));
-        $this->set('post', $post);
+        
+        $this->set('client',$client);					//スケジュール投稿者		
+        $this->set('view', $id);						//スケジュールid
+        $this->set('user', $this->Auth->user('id'));	//ログイン中ユーザ
+        $this->set('post', $post);						//スケジュール内容
     }
 	
 	public function add() {	//addメソッド
+		$this->set('user', $this->Auth->user('driverflag'));
 		$this->set('venue', $this->Venue->find('list',array('fields' => array('Venue.name'))));
 		$this->request->data['Post']['user_id'] = $this->Auth->user('id');
         if ($this->request->is('post')) {						//リクエストメソッドがpostだったら以下を実行
@@ -138,11 +139,17 @@ class PostsController extends AppController {
 		if (!$contact) {
             throw new NotFoundException(__('そのようなコンタクトは依頼されていません！'));
         }
+		if (!$id) {
+            throw new NotFoundException(__('そのようなコンタクトは依頼されていません！'));
+        }
+
 
         $this->Post->read(null, $id);
         $this->Post->set('stateflag', 1);
+        $this->Post->set('contacter_id', $contact);
         $this->Post->save();
-		$this->log($contact ,"log");
+
+		//$this->log($contact ,"log");
 
 		//$contact 宛に落札成功のメールを送信する
 		//$contact 以外に落札失敗のメールを送信する

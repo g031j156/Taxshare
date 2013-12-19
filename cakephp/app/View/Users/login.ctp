@@ -25,25 +25,35 @@
 </head>
 
 <body>
-    <div align="center">
+    <div class="container">
         <a href="https://www.facebook.com/taxshare" target="blank">
             <img src="../img/taxshare/title_icon.png" width="350" height="95" alt="home">
         </a>
         <?php echo $this->Session->flash('auth'); ?>
         <?php echo $this->Form->create('User'); ?>
-            <fieldset name="form">
-                
-            <?php 
-                echo $this->Form->input('username', array('label'=> "学内アドレス", 'after'=> '@s.iwate-pu.ac.jp'));
-                echo $this->Form->input('password', array('label'=> "パスワード"));
-            ?>
-            </fieldset>
+            <?php
+                // echo $this->Form->input('username', array('type' => 'text', 'label' => '学内アドレス', 'placeholder' => '学内アドレス', 'after' => '@s.iwate-pu.ac.jp', 'div'=> false));
+                // echo $this->Form->input("password",array("type" => "text",'label' => false, 'div'=> false));
+                // echo $this->Form->end('ログイン');
 
-        <?php echo $this->Form->end(__('ログイン')); ?>
+            ?>
+
+            <?php 
+                echo $this->Form->input('username', array('placeholder'=> "学内アドレス", 'after' => '@s.iwate-pu.ac.jp', 'div' => false, 'label' => false));
+                echo $this->Form->input('password', array('placeholder'=> "パスワード", 'div' => false, 'label' => false));
+                echo $this->Form->end(__('ログイン'));
+            ?>
+            </fieldset> 
+
+        <?php  ?>
 
         <a class="btn btn-primary" href="add">新規登録</a>
+        <div class="jumbotron">
+            <h1>What is taxshare</h1>
+            <p>説明文...</p>
+            <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+        </div>
     </div>
-    
 
     <script>
     $(function(){

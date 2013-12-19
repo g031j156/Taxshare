@@ -16,16 +16,17 @@
 // echo $this->Form->end('登録');
 ?>
 
-<form action="/~offside_now/yama/cakephp/posts/add" id="PostAddForm" method="post" accept-charset="utf-8">
+<form action="add" id="PostAddForm" method="post" accept-charset="utf-8">
 	<div style="display:none;">
 		<input type="hidden" name="_method" value="POST">
 	</div>
 	<div class="input select">
 		<label for="PostDpflag">タイトル</label>
 		<select class="form-control input-lg" name="data[Post][dpflag]" id="PostDpflag">
-			<option value="0">乗せるよ！</option>
+			<?php if($user == 1):?><option value="0">乗せるよ！</option><?php endif;?>
 			<option value="1" selected="selected">乗りたい！</option>
 		</select>
+		※「乗せるよ！」のスケジュール登録をする際はドライバー登録を行ってください。
 	</div>
 	<div class="input select">
 		<label for="PostStartId">出発地</label>
@@ -40,14 +41,26 @@
 	</div>
 	<div class="input select">
 		<label for="PostGoalId">目的地</label>
-		<select class="form-control input-lg"
-		name="data[Post][goal_id]" id="PostGoalId">
+		<select class="form-control input-lg" name="data[Post][goal_id]" id="PostGoalId">
 			<option value="1">滝沢駅</option>
 			<option value="2">県大</option>
 			<option value="3">巣子駅</option>
 			<option value="4">厨川駅</option>
 			<option value="5">青山駅</option>
 			<option value="6">盛岡駅</option>
+		</select>
+	</div>
+	<div class="input select">
+		<label for="PostMember">希望同乗人数</label>
+		<select class="form-control input-lg" name="data[Post][member]" id="PostMember">
+			<option value="1">1人</option>
+			<option value="2">2人</option>
+			<option value="3">3人</option>
+			<option value="4">4人</option>
+			<option value="5">5人</option>
+			<option value="6">6人</option>
+			<option value="7">7人</option>
+			<option value="8">8人</option>
 		</select>
 	</div>
 	<div class="submit">
