@@ -12,20 +12,24 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts.Email.text
+ * @package       app.View.Emails.text
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<?php echo $content_for_layout; ?>
+以下の案件のマッチングに失敗しました...
 
+-----
+日時：<?php echo $msg['Post']['encount'];?>　に
+<?php echo $msg['Start']['name']."〜".$msg['Goal']['name']; ?>　まで
+<?php 
+if($msg['Post']['dpflag'] == 1){
+	echo $msg['User']['username']."さんを乗せていく。";
+}else{
+	echo $msg['User']['username']."さんに乗せてもらう。"; 
+}
+?><br />
+-----
 
-
-上記の内容に覚えがない場合はお手数ですがお問い合わせ下さい。
-
--- 
-タクシェア開発チーム
-g031j156@s.iwate-pu.ac.jp
-
-
-This email was sent by taxshare Development team https://www.facebook.com/taxshare . 
+今回は他のユーザーがマッチングしました。
+落ち込まないで別の案件を探して楽しく移動しましょう！

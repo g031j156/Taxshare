@@ -106,7 +106,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				      	<li><a href="/~offside_now/yama/cakephp/posts/index">一覧</a></li>
 				        <li><a href="/~offside_now/yama/cakephp/posts/add">予定登録</a></li>
 				    	<li><a href="/~offside_now/yama/cakephp/posts/usage">使い方</a></li>
-				    	<li><a href="/~offside_now/yama/cakephp/posts/driver">ドライバー紹介</a></li>
+				    	<li><a href="/~offside_now/yama/cakephp/users/driver">ドライバー紹介</a></li>
 				    </ul>
 				    <ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">

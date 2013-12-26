@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('CakeEmail','Network/Email');
+App::import('Vendor','facebook', array('file' => 'facebook'.DS.'src'.DS.'facebook.php'));//sdkのインポート
 
 class UsersController extends AppController {
     public $helpers = array('Html', 'Form');
@@ -8,11 +9,29 @@ class UsersController extends AppController {
 		'Auth' => array(
 			'authError' => 'ログインしてください。'));
 	public $uses = array('Post', 'User', 'Signature');
+
+	private function createFacebook() {
+        return new Facebook(array(
+                'appId' => '617693598296828',
+                'secret' => 'a7ccdf4efe95336173c23e108e4727ac'
+        ));
+    }
 	
 	public function beforeFilter() {
     parent::beforeFilter();
     $this->Auth->authError = "ログインしてください。";
     $this->set('Auth_user', $this->Auth->user(''));
+    $this->Post->recursive = 2;
+    $this->Post->Contact->unbindModel(array(
+	    'belongsTo' => array('Post')));
+    $user_log = $this->Post->find('all', array(
+								'conditions' => array("OR" => array(
+													'Post.user_id' => $this->Auth->user('id'),
+													'Post.contacter_id' => $this->Auth->user('id')
+													))
+  								)     	
+        		);
+    $this->set('user_log', $user_log);
     //$this->Auth->allow('add'); // ユーザーに自身で登録させる
 	}
 	
@@ -30,15 +49,15 @@ class UsersController extends AppController {
 		        $this->Post->recursive = 2;
 		        $this->Post->Contact->unbindModel(array(
 				    'belongsTo' => array('Post')));
-        		$post = $this->Post->find('all', array(
-        										'conditions' => array("OR" => array(
-        														'Post.user_id' => $this->Auth->user('id'),
-        														'Post.contacter_id' => $this->Auth->user('id')
-        														))
-        										)     	
+        		$user_log = $this->Post->find('all', array(
+								'conditions' => array("OR" => array(
+													'Post.user_id' => $this->Auth->user('id'),
+													'Post.contacter_id' => $this->Auth->user('id')
+													))
+  								)     	
         		);
         		// $this->log($post,'log');
-        		$this->Session->write("user_log", $post);
+        		$this->Session->write("user_log", $user_log);
                	return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
 	        } else {
 	            $this->Session->setFlash('学内アドレスとパスワードが一致しません！', 'default', array(), 'auth');
@@ -112,7 +131,25 @@ class UsersController extends AppController {
         }
 	}
 
+	public function driver(){
+    	$this->set('driver', $this->User->find('all', array('conditions' => array('User.driverflag' => 1))));
+    }
+
 	function setting(){
+		$this->autoRender = false;
+		$facebook = $this->createFacebook();
+        $fb_user = $facebook->getUser(); //これ大事
+        debug($facebook);
+        if($fb_user){
+                //ログインしている場合の処理
+        }else{
+　　　　　　　  //ログインしていない場合の処理
+                $url = $facebook->getLoginUrl(array(
+                        'scope' => 'email,publish_stream',
+                        'canvas' => 1
+                        ));
+                $this->redirect($url);
+        }
 		$this->set('Auth_user', $this->Auth->user());
 
 		if(!empty($this->data)){

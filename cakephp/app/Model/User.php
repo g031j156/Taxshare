@@ -1,7 +1,7 @@
 <?php
 class User extends AppModel{
 	var $name = 'User';
-	public $hasMany = 'Contact';//array('contacts' =>
+	public $hasMany = array('Post','Contact');//array('contacts' =>
  //        array(
  //            'className' => 'contacts',
  //            'conditions' => 'contacts.user_id = users.id',

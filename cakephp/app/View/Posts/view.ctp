@@ -89,9 +89,11 @@
 			<?php 
 			//$this->log($post, 'log');
 			if($post['Post']['user_id'] == $user){
-				echo '<button type="button" class="btn btn-default btn-lg">';
-				echo $this->Html->link('編集', array('action' => 'edit', $post['Post']['id']));
-				echo '</button><br><br>';
+				if($post['Post']['stateflag'] == 0){
+					echo '<button type="button" class="btn btn-default btn-lg">';
+					echo $this->Html->link('編集', array('action' => 'edit', $post['Post']['id']));
+					echo '</button><br><br>';
+				}
 				echo '<button type="button" class="btn btn-default btn-lg">'; 
 			 	echo $this->Html->link('削除', array('action' => 'delete', $post['Post']['id']));
 			 	echo '</button>';

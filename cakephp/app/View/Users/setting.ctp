@@ -27,13 +27,13 @@
 			<label for="gender" class="required">性別</label>
 			<div class="radio">
 				<label>
-					<input type="radio" name="data[User][gender]" id="gender" value="male" checked>
+					<input type="radio" name="data[User][gender]" id="gender" value="男性" checked>
 					男性
 				</label>
 			</div>
 			<div class="radio">
 				<label>
-					<input type="radio" name="gender" id="data[User][gender]" value="female">
+					<input type="radio" name="gender" id="data[User][gender]" value="女性">
 					女性
 				</label>
 			</div>
@@ -50,12 +50,12 @@
 			<div class="input select required">
 				<label for="grade">学年</label>
 				<select class="form-control input-lg" name="data[User][grade]" id="grade">
-					<option value="1">学部１年</option>
-					<option value="2">学部２年</option>
-					<option value="3">学部３年</option>
-					<option value="4">学部４年</option>
-					<option value="5">修士１年</option>
-					<option value="6">修士２年</option>
+					<option value="学部1年">学部１年</option>
+					<option value="学部2年">学部２年</option>
+					<option value="学部3年">学部３年</option>
+					<option value="学部4年">学部４年</option>
+					<option value="修士1年">修士１年</option>
+					<option value="修士2年">修士２年</option>
 				</select>
 			</div>
 			<div class="form-group required">
